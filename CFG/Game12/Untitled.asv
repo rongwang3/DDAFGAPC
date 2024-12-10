@@ -1,0 +1,25 @@
+clear all；
+clear clc；
+%%  相同用户数量下，如果都用10用户的
+y31=3.33*10^(-4);
+y32=2.35*10^(-4);  % 扫频干扰
+
+y41=4*10^(-3);
+y42=1.72*10^(-4);  % 随机干扰
+
+y51=5*10^(-3);  % 智能干扰
+y52=1.29*10^(-4);
+a=[y31 y41 y51]'; % CFG
+b=[y32 y42 y52 ]';  % Pareto
+
+figure
+x=['扫频干扰','随机干扰','智能干扰'];
+y=[a b];
+for i=1:length(x)
+    y
+    bar(x(i),y)
+end
+grid on
+legend('Reciprocity Order','Selfish Order','Pareto Order')
+xlabel('Number of coalitions')
+ylabel('Sum Utility')
